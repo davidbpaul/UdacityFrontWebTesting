@@ -72,7 +72,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
       it('menu change on click', function() {
-          var menu = document.querySelector(".menu-icon-link")
+          var menu = document.querySelector(".menu-icon-link");
           menu.click();
           expect(document.body.className).not.toContain("menu-hidden");
           menu.click();
@@ -92,15 +92,15 @@ $(function() {
         beforeEach(function(done){
           loadFeed(0, function() {
             done();
-          })
+          });
 
-        })
+        });
 
         it("1 entry after loadFeed function", function(done) {
           var numEntries = document.querySelector(".feed").getElementsByClassName("entry").length;
           expect(numEntries).toBeGreaterThan(0);
           done();
-        })
+        });
           it("has a http link'", function(done) {
             var entries = document.querySelector(".feed").getElementsByClassName("entry-link");
             for(var i = 0; i < entries.length; i++){
@@ -123,11 +123,11 @@ $(function() {
           initFeedSelection = document.querySelector(".feed").innerHTML;
           loadFeed(1, function() {
 
-          })
-        })
-      })
+          });
+        });
+      });
       it('menu change on click', function(done) {
-          var newFeedSelection = document.querySelector('.feed').innerHTML
+          var newFeedSelection = document.querySelector('.feed').innerHTML;
           expect(initFeedSelection).not.toBe(newFeedSelection);
           done();
       });
