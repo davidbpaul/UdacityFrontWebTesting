@@ -6,10 +6,8 @@
 
 
 ## Usage
-
+    Drag index into browser.
 
 
 #### Clone Repository:
-
-
-     https://github.com/davidbpaul/UdacityFrontWebTesting.git
+    https://github.com/davidbpaul/UdacityFrontWebTesting.git
