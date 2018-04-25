@@ -44,44 +44,48 @@ $(function() {
 
          //check if menu is initially hidden
       it('Menu element is hidden by default', function() {
-          expect(document.body.className).toContain("menu-hidden");
+          expect($( "body" ).hasClass( "menu-hidden" )).toBe(true);
 
       });
       // menu change on click
       it('menu change on click', function() {
           var menu = document.querySelector(".menu-icon-link");
           menu.click();
-          expect(document.body.className).not.toContain("menu-hidden");
+          expect($( "body" ).hasClass( "menu-hidden" )).toBe(false);
+
           menu.click();
-          expect(document.body.className).toContain("menu-hidden");
+          expect($( "body" ).hasClass( "menu-hidden" )).toBe(true);
+
       });
+
+
     });
 
     describe('Initial Entries', function() {
-      // feed container does not contained null
+      // feed   container does not contained null
 
-        beforeEach(function(done){
-          loadFeed(0, function() {
-            done();
-          });
-
-        });
-
-        //check for entry element
-        it("1 entry after loadFeed function", function(done) {
-          var numEntries = document.querySelector(".feed").firstElementChild;
-          expect(numEntries).toBeDefined();
+      beforeEach(function(done){
+        loadFeed(0, function() {
           done();
         });
 
-        //check for http link
-        it("has a http link'", function(done) {
-          var entries = document.querySelector(".feed").getElementsByClassName("entry-link");
-          for(var i = 0; i < entries.length; i++){
-            expect(entries[i].href).toMatch("^https*:\/\/");
-          }
+      });
+
+        //check for entry element
+      it("1 entry after loadFeed function", function(done) {
+        var numEntries = document.querySelectorAll(".feed > .entry");
+        expect(numEntries.length <= 0).toBe(true);
         done();
-        });
+      });
+
+        //check for http link
+      it("has a http link'", function(done) {
+        var entries = document.querySelector(".feed").getElementsByClassName("entry-link");
+        for(var i = 0; i < entries.length; i++){
+          expect(entries[i].href).toMatch("^https*:\/\/");
+        }
+        done();
+      });
 
     });
     describe("New Feed Selection", function() {
