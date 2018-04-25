@@ -73,8 +73,8 @@ $(function() {
 
         //check for entry element
       it("1 entry after loadFeed function", function(done) {
-        var numEntries = document.querySelectorAll(".feed > .entry");
-        expect(numEntries.length <= 0).toBe(true);
+        var entry = $(".feed .entry");
+        expect(entry.length).toBeGreaterThan(0);
         done();
       });
 
